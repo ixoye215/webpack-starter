@@ -26,11 +26,11 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                exclude: /style.css$/,
+                exclude: /styles.css$/,
                 use: [ 'style-loader', 'css-loader']
             },
             {
-                test: /style.css$/,
+                test: /styles.css$/,
                 use: [ MiniCssExtractPlugin.loader, 'css-loader' ]
             },
             {
@@ -38,7 +38,7 @@ module.exports = {
                 loader: 'file-loader',
                 options: {
                     esModule: false,
-                    name: 'assets/[name].[ext]',
+                    name: 'assets/img/[name].[ext]',
                 },
             },
             {
@@ -69,13 +69,13 @@ module.exports = {
         }),
 
         new MiniCssExtractPlugin({
-            filename: 'style.css',
+            filename: 'styles.css',
             ignoreOrder: true,
         }),
 
         new CopyPlugin({
             patterns: [
-                {from: 'src/assets/', to: 'assets/'}
+                {from: 'src/assets/img/', to: 'assets/img/'}
             ]
         })
     ]
